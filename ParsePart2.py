@@ -42,7 +42,8 @@ def start_process(max_pages_amount):
     if max_pages_amount <= 1:
         max_pages_amount = 2
     write_quotes_to_excel(parse_pages(max_pages_amount), file_name)
-
+    if os.path.isfile(file_name):
+        print(f"OK! File created [{file_name}]")
 
 def parse_pages(max_pages_amount):
     for page_num in range(1, max_pages_amount):
